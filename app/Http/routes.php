@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/list', 'ReportList@__invoke');
+
 Route::post('/send', 'Send@__invoke');

@@ -9,7 +9,7 @@ use App\Domain\EmailBuilder;
  * @ORM\Entity
  * @ORM\Table(name="report")
  */
-class Report
+class Report implements \JsonSerializable
 {
     const STATUS_SUCCESS = 'success';
     const STATUS_ERROR = 'error';
@@ -89,5 +89,14 @@ class Report
     public function getStatus()
     {
         return $this->status;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->id,
+            'status' => $this->status,
+            'message' => $this->message,
+        ];
     }
 }
