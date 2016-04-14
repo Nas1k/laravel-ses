@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/send', 'Send@__invoke');
+Route::post('/send', 'Send@__invoke');
