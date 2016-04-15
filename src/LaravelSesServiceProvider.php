@@ -20,6 +20,7 @@ class LaravelSesServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'nas1kLaravelSes');
         $this->publishes([
             __DIR__ . '../config/aws.php' => config_path('aws.php'),
+            __DIR__ . '../config/doctrine.php' => config_path('doctrine.php'),
             __DIR__ . '../resources/views' => base_path('resources/views/vendor/nas1kLaravelSes'),
         ]);
         if (!$this->app->routesAreCached()) {

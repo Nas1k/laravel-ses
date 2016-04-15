@@ -19,7 +19,7 @@ class ListController extends BaseController
         $rows = $this->reportRepository->findAll();
 
         return view(
-            'list',
+            'nas1kLaravelSes::list',
             ['items' => json_encode($rows)]
         );
     }

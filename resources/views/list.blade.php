@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('nas1kLaravelSes::layouts.main')
 
 @section('title', 'SES Reports')
 
