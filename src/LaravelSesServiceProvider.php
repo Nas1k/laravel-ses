@@ -2,6 +2,10 @@
 
 namespace Nas1k\LaravelSes;
 
+use Nas1k\LaravelSes\Domain\Entity\Report;
+use Nas1k\LaravelSes\Domain\Entity\ReportRepository;
+use Aws\Ses\SesClient;
+use Doctrine\ORM\Mapping\ClassMetadata;
 use Illuminate\Support\ServiceProvider;
 
 class LaravelSesServiceProvider extends ServiceProvider
@@ -30,6 +34,11 @@ class LaravelSesServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // TODO: Implement register() method.
+        $this->app->bind(SesClient::class, function ($app){
+            return new SesClient($app['config']['aws']);
+        });
+        $this->app->bind(ReportRepository::class, function ($app) {
+            return new ReportRepository($app['em'], new ClassMetadata(Report::class));
+        });
     }
 }
