@@ -1,15 +1,14 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "nas1k/laravel-ses",
+    "description": "Laravel send email by Amazon SES",
+    "keywords": ["ses", "laravel", "email"],
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=5.5.9",
+        "php": ">=7.0.0",
         "laravel/framework": "5.2.*",
         "aws/aws-sdk-php-laravel": "^3.1",
-        "laravel-doctrine/orm": "^1.1",
-        "laravel-doctrine/extensions": "^1.0"
+        "laravel-doctrine/orm": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -23,13 +22,8 @@
             "database"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "Nas1k\\LaravelSes": "src/"
         }
-    },
-    "autoload-dev": {
-        "classmap": [
-            "tests/TestCase.php"
-        ]
     },
     "scripts": {
         "post-root-package-install": [

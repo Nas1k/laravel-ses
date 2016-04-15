@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain;
+namespace Nas1k\LaravelSes\Domain;
 
-use App\Domain\Email\MissedRequiredParameterException;
+use Nas1k\LaravelSes\Domain\Email\MissedRequiredParameterException;
 
 class EmailBuilder implements \Serializable
 {

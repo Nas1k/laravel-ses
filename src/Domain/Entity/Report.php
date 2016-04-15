@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\Entity;
+namespace Nas1k\LaravelSes\Domain\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Domain\EmailBuilder;
+use Nas1k\LaravelSes\Domain\EmailBuilder;
 
 /**
  * @ORM\Entity

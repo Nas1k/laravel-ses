@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Report;
+namespace Nas1k\LaravelSes\Http\Controllers\Report;
 
-use App\Domain\Entity\ReportRepository;
+use Nas1k\LaravelSes\Domain\Entity\ReportRepository;
 use Illuminate\Routing\Controller as BaseController;
 
 class ListController extends BaseController

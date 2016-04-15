@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Email;
+namespace Nas1k\LaravelSes\Domain\Email;
 
 class MissedRequiredParameterException extends \Exception
 {

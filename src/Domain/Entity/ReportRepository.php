@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Entity;
+namespace Nas1k\LaravelSes\Domain\Entity;
 
 use Doctrine\ORM\EntityRepository;
 

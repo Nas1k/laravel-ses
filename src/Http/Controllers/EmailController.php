@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Nas1k\LaravelSes\Http\Controllers;
 
-use App\Domain\EmailBuilder;
-use App\Domain\Entity\Report;
-use App\Domain\Entity\ReportRepository;
+use Nas1k\LaravelSes\Domain\EmailBuilder;
+use Nas1k\LaravelSes\Domain\Entity\Report;
+use Nas1k\LaravelSes\Domain\Entity\ReportRepository;
 use Aws\Exception\AwsException;
 use Aws\Ses\SesClient;
 use Illuminate\Routing\Controller as BaseController;

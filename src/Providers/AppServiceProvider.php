@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Providers;
+namespace Nas1k\LaravelSes\Providers;
 
-use App\Domain\Entity\Report;
-use App\Domain\Entity\ReportRepository;
+use Nas1k\LaravelSes\Domain\Entity\Report;
+use Nas1k\LaravelSes\Domain\Entity\ReportRepository;
 use Aws\Ses\SesClient;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Illuminate\Support\ServiceProvider;
