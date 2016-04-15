@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Report;
 
 use App\Domain\Entity\ReportRepository;
 use Illuminate\Routing\Controller as BaseController;
 
-class ReportList extends BaseController
+class ListController extends BaseController
 {
     protected $reportRepository;
 
@@ -14,7 +14,7 @@ class ReportList extends BaseController
         $this->reportRepository = $reportRepository;
     }
 
-    public function __invoke()
+    public function create()
     {
         $rows = $this->reportRepository->findAll();
 

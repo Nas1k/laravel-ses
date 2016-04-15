@@ -10,7 +10,7 @@ use Aws\Ses\SesClient;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Log;
 
-class Send extends BaseController
+class EmailController extends BaseController
 {
     /**
      * @var SesClient
@@ -37,7 +37,7 @@ class Send extends BaseController
         $this->reportRepository = $reportRepository;
     }
 
-    public function __invoke()
+    public function send()
     {
         $message =$this->emailBuilder->setSource(request()->input('source'))
                 ->setDestinationTo(request()->input('destination'))
