@@ -151,8 +151,8 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Nas1k\LaravelSes\Providers\AppServiceProvider::class,
+        Nas1k\LaravelSes\Providers\RouteServiceProvider::class,
 
         Aws\Laravel\AwsServiceProvider::class,
         LaravelDoctrine\ORM\DoctrineServiceProvider::class,
@@ -171,7 +171,7 @@ return [
 
     'aliases' => [
 
-        'App' => Illuminate\Support\Facades\App::class,
+        'Nas1k\\LaravelSes' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
         'Blade' => Illuminate\Support\Facades\Blade::class,
@@ -203,8 +203,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Aws' => Aws\Laravel\AwsFacade::class,
         'EntityManager' => LaravelDoctrine\ORM\Facades\EntityManager::class,
-        'Registry'      => LaravelDoctrine\ORM\Facades\Registry::class,
-        'Doctrine'      => LaravelDoctrine\ORM\Facades\Doctrine::class,
+        'Registry' => LaravelDoctrine\ORM\Facades\Registry::class,
+        'Doctrine' => LaravelDoctrine\ORM\Facades\Doctrine::class,
     ],
 
 ];

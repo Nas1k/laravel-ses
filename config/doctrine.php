@@ -7,10 +7,10 @@ return [
             'meta'       => env('DOCTRINE_METADATA', 'annotations'),
             'connection' => env('DB_CONNECTION', 'mysql'),
             'namespaces' => [
-                'App'
+                'Nas1k\LaravelSes'
             ],
             'paths'      => [
-                base_path('app')
+                base_path('src')
             ],
             'repository' => Doctrine\ORM\EntityRepository::class,
             'proxies'    => [
