@@ -22,7 +22,7 @@
             "database"
         ],
         "psr-4": {
-            "Nas1k\\LaravelSes": "src/"
+            "Nas1k\\LaravelSes\\": "src/"
         }
     },
     "scripts": {
