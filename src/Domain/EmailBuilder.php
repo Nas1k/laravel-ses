@@ -103,10 +103,9 @@ class EmailBuilder implements \Serializable
 
     public function unserialize($data)
     {
-        list(
-            $this->message,
-            $this->source,
-            $this->destination
-        ) = unserialize($data);
+        $result = unserialize($data);
+        $this->message = $result['message'];
+        $this->source = $result['source'];
+        $this->destination = $result['destination'];
     }
 }
