@@ -4,7 +4,7 @@ namespace Nas1k\LaravelSes\Domain;
 
 use Nas1k\LaravelSes\Domain\Email\MissedRequiredParameterException;
 
-class EmailBuilder implements \Serializable
+class EmailBuilder implements \Serializable, \JsonSerializable
 {
     const DESTINATION_TO  = 'ToAddresses';
     const DESTINATION_CC  = 'CcAddresses';
@@ -107,5 +107,10 @@ class EmailBuilder implements \Serializable
         $this->message = $result['message'];
         $this->source = $result['source'];
         $this->destination = $result['destination'];
+    }
+
+    public function jsonSerialize()
+    {
+        return $this->build();
     }
 }

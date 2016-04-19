@@ -6,16 +6,16 @@ use Nas1k\LaravelSes\Domain\EmailBuilder;
 use Nas1k\LaravelSes\Domain\Entity\Report;
 use Nas1k\LaravelSes\Domain\Entity\ReportRepository;
 use Aws\Exception\AwsException;
-use Aws\Ses\SesClient;
+use Aws\Sns\SnsClient;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Log;
 
 class EmailController extends BaseController
 {
     /**
-     * @var SesClient
+     * @var SnsClient
      */
-    protected $sesClient;
+    protected $snsClient;
 
     /**
      * @var EmailBuilder
@@ -28,11 +28,11 @@ class EmailController extends BaseController
     protected $reportRepository;
 
     public function __construct(
-        SesClient $sesClient,
+        SnsClient $snsClient,
         EmailBuilder $emailBuilder,
         ReportRepository $reportRepository
     ) {
-        $this->sesClient = $sesClient;
+        $this->snsClient = $snsClient;
         $this->emailBuilder = $emailBuilder;
         $this->reportRepository = $reportRepository;
     }
@@ -42,17 +42,18 @@ class EmailController extends BaseController
         $message =$this->emailBuilder->setSource(request()->input('source'))
                 ->setDestinationTo(request()->input('destination'))
                 ->setMessageText(request()->input('subject'), request()->input('message'));
-        $report = new Report();
-        $report->setMessage($message);
         try {
-            $this->sesClient->sendEmail($message->build());
-            $report->setStatus(Report::STATUS_SUCCESS);
+            $res = $this->snsClient->publish(
+                [
+                    'Message' => json_encode($message),
+                    'TopicArn' => 'arn:aws:sns:us-west-2:406192376864:send-message-to-ses',
+                ]
+            );
+            var_dump($res->get('MessageId'));die;
         } catch (AwsException $e) {
             Log::info($e);
-            $report->setStatus(Report::STATUS_ERROR);
             return response()->json(['status' => Report::STATUS_ERROR, 'error' => $e->getMessage()]);
         }
-        $this->reportRepository->save($report);
         return response()->json(['status' => Report::STATUS_SUCCESS]);
     }
 }
